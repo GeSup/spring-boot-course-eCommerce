@@ -1,14 +1,13 @@
 package com.ecomerce_gesup.spring_boot_ecom_gesup.service;
 
-import com.ecomerce_gesup.spring_boot_ecom_gesup.model.Category;
-
-import java.util.List;
+import com.ecomerce_gesup.spring_boot_ecom_gesup.payload.CategoryDTO;
+import com.ecomerce_gesup.spring_boot_ecom_gesup.payload.CategoryResponse;
 
 public interface CategoryService {
-    List<Category> getAllCategories();
-    void createCategory(Category category);
+    CategoryResponse getAllCategories(Integer pageNumber, Integer pageSize, String sortBy, String sortOrder);
+    CategoryDTO createCategory(CategoryDTO categoryDTO);
 
-    String deleteCategory(Long categoryId);
+    CategoryDTO deleteCategory(Long categoryId);
 
-    Category updateCategory(Category category, Long categoryId);
+    CategoryDTO updateCategory(CategoryDTO categoryDTO, Long categoryId);
 }
