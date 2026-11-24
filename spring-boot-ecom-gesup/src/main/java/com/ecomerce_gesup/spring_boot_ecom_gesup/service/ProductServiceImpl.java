@@ -50,7 +50,7 @@ public class ProductServiceImpl implements ProductService {
         Category category = categoryRepository.findById(categoryId)
                 .orElseThrow(() -> new ResourceNotFoundException("Category", "categoryId", categoryId));
 
-        Optional<Product> productOptional = productRepository.findFirstByCategoryAndProductNameLikeIgnoreCase(category, productDTO.getProductName());
+        Optional<Product> productOptional = productRepository.findFirstByCategoryAndProductNameIgnoreCase(category, productDTO.getProductName());
         if (productOptional.isPresent()) {
             throw new APIException("There is product " + productOptional.get().getProductName() + " in category " + category.getCategoryName());
         }
